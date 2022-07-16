@@ -5,11 +5,9 @@ import {AiFillInstagram, AiOutlineTwitter, AiFillFacebook, AiOutlineCopyrightCir
 export const Footer = () => {
   return (
     <div className='footer-container'>
-      <p>2022 JSM Headphones All Rights Reserved <AiOutlineCopyrightCircle/> </p>
+      <p>2022 Tunnel Games All Rights Reserved <AiOutlineCopyrightCircle/> </p>
       <p className='icons'>
-        <AiFillInstagram />
-        <AiOutlineTwitter />
-        <AiFillFacebook />
+     
       </p>
     </div>
   )

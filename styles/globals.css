@@ -3,12 +3,14 @@ body, * {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, fantasy;
   box-sizing: border-box;
+  
 
 }
 ::-webkit-scrollbar {
   width: 0px;
+  
 }
 
 a {
@@ -21,6 +23,7 @@ max-width: 1400px;
 margin: auto;
 width: 100%;
 
+
 }
 .layout{
   padding: 10px;
@@ -31,6 +34,8 @@ width: 100%;
   justify-content: space-between;
   margin: 6px 18px;
   position: relative;
+  font-family: fantasy;
+  
 }
 .marquee-text{
   font-size: 29px;
@@ -65,8 +70,10 @@ width: 100%;
     margin-left: 6px;
 }
 .logo{
-  color: gray;
-  font-size: 18px;
+  color: rgb(0, 0, 0);
+  font-size: 60px;
+  font-weight: bold;
+
 
 }
 .cart-icon{
@@ -114,7 +121,8 @@ width: 100%;
 }
 .product-image{
   border-radius: 15px;
- background-color: #ebebeb;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 12%, rgba(57,57,57,1) 78%);
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
@@ -128,9 +136,10 @@ width: 100%;
   color: black;
 }
 
-.hero-banner-container{
+.upper-banner-container{
   padding: 100px 40px;
-  background-color: #dcdcdc;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(57,57,57,1) 100%);
   border-radius: 15px;
   position: relative;
   height: 500px;
@@ -138,10 +147,10 @@ width: 100%;
   width: 100%;
 
 }
-.hero-banner-container .beats-solo{
+.upper-banner-container .beats-solo{
   font-size: 20px;
 }
-.hero-banner-container button{
+.upper-banner-container button{
    border-radius: 15px;
   padding: 10px 16px;
   background-color: #f02d34;
@@ -154,17 +163,17 @@ width: 100%;
   z-index:10000 !important;
 }
 
-.hero-banner-container h3{
+.upper-banner-container h3{
   font-size: 4rem;
   margin-top: 4px;
 }
-.hero-banner-container h1{
+.upper-banner-container h1{
   color: white;
   font-size: 10em;
   margin-left: -20px;
   text-transform: uppercase;
 }
-.hero-banner-image{
+.upper-banner-image{
   margin-top: 30px;
   position: absolute;
   top: 0%;
@@ -213,7 +222,8 @@ text-align: end;
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: #f02d34;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(84,84,84,1) 49%);
   border-radius: 15px;
   position: relative;
   height: 400px;
@@ -622,10 +632,10 @@ margin-top: 160px;
 }
 
 @media screen and (max-width:800px) {
-  .hero-banner-container{
+  .upper-banner-container{
     height: 560px;
   }
-  .hero-banner-image{
+  .upper-banner-image{
     width: 77%;
     height: 62%;
     top: -2%;
@@ -662,16 +672,16 @@ margin-top: 160px;
     flex-wrap: wrap;
     gap: 20px;
   }
-  .hero-banner-container{
+  .upper-banner-container{
     line-height: 1.3;
   }
-  .hero-banner-container h1{
+  .upper-banner-container h1{
     font-size: 50px;
   }
- .hero-banner-container h3{
+ .upper-banner-container h3{
     font-size: 40px;
   }
-  .hero-banner-container button{
+  .upper-banner-container button{
     margin-top: 90px;
     z-index: 10000;
   }
@@ -763,4 +773,5 @@ margin-top: 160px;
   width: 300px;
   margin: auto;
 }
+
 }
