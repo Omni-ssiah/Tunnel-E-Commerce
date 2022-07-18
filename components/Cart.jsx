@@ -8,9 +8,10 @@ import { urlFor } from '../lib/client';
 import getStripe from '../lib/getstripe';
 
 export const Cart = () => {
+  //cart function for our project that handles the contents inside the cart
     const cartRef = useRef();
     const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
-
+//handle checkout function that handles the payment function of the project
     const handleCheckout = async () => {
       const stripe = await getStripe();
   
