@@ -32,7 +32,7 @@ export const Cart = () => {
       stripe.redirectToCheckout({ sessionId: data.id });
     }
   
-
+//this shows the actual apperance of the cart function
   return (
     <div className='cart-wrapper' ref={cartRef}>
       <div className='cart-container'>

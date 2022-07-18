@@ -1,10 +1,11 @@
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-
+//function that handles the payment method of our project.
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     console.log(req.body.cartItems) 
+    //connects the shipping method function from stripes and the contents of it.
     try {
       const params = {
         submit_type: 'pay',

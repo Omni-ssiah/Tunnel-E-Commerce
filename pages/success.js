@@ -5,7 +5,7 @@ import { BsBagCheckFill } from 'react-icons/bs';
 
 
 const Success = () => {
-  
+  //function that shows if the customer is done with the payment.
   return (
     <div className="success-wrapper">
       <div className="success">
