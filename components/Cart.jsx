@@ -5,11 +5,34 @@ import { TiDeleteOutline } from 'react-icons/ti';
 import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
+import getStripe from '../lib/getstripe';
 
 export const Cart = () => {
+  //cart function for our project that handles the contents inside the cart
     const cartRef = useRef();
     const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
-
+//handle checkout function that handles the payment function of the project
+    const handleCheckout = async () => {
+      const stripe = await getStripe();
+  
+      const response = await fetch('/api/stripe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cartItems),
+      });
+  
+      if(response.statusCode === 500) return;
+      
+      const data = await response.json();
+  
+      toast.loading('Redirecting...');
+  
+      stripe.redirectToCheckout({ sessionId: data.id });
+    }
+  
+//this shows the actual apperance of the cart function
   return (
     <div className='cart-wrapper' ref={cartRef}>
       <div className='cart-container'>
@@ -60,8 +83,9 @@ export const Cart = () => {
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            </div> 
+            ))}
+
         </div>
         {cartItems.length >= 1 && (
           <div className='cart-bottom'>
@@ -70,7 +94,7 @@ export const Cart = () => {
               <h3>₱{totalPrice}</h3>
             </div>
             <div className='btn-container'>
-              <button type='button' className='btn' onClick="">Pay Now</button>
+              <button type='button' className='btn' onClick={handleCheckout}>Pay Now</button>
             </div>
           </div>
         )}

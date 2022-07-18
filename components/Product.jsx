@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
-
+//function that handles the contents of the products.
 export const Product = ({ product: {image, name, slug, price} }) => {
+
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
