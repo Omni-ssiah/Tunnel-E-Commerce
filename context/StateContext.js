@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 
 const Context = createContext();
 //function that handles the context of the cart items and price of the cart and calculates the transaction that the client has made.
+
 export const StateContext = ({ children }) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
@@ -13,6 +14,7 @@ export const StateContext = ({ children }) => {
     let foundProduct;
     let index;
 
+    //upon clicking add to cart, it will add the item onto the cart
     const onAdd = (product, quantity) => {
         const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
@@ -39,6 +41,8 @@ export const StateContext = ({ children }) => {
         toast.success(`${qty} ${product.name} added to the cart`)
     }
 
+
+    // removes an item of the cart and revert back the changes made on the price and quantity
     const onRemove = (product) =>{
         foundProduct = cartItems.find((item) => item._id === product._id);
         const newCartItems = cartItems.filter((item) => item._id !== product._id);
@@ -48,6 +52,7 @@ export const StateContext = ({ children }) => {
         setCartItems(newCartItems);
     }
 
+    // shows an increase and decrease button on the item, so that if the user wants to increase an item it may do so inside the cart
     const toggleCartItemQuantity = (id, value) => {
         foundProduct = cartItems.find((item) => item._id === id);
         index = cartItems.findIndex((product) => product._id === id);
@@ -66,10 +71,12 @@ export const StateContext = ({ children }) => {
         }
     }
 
+    // increase an item quantity on the [slug].js page
     const incQty = () => {
         setQty((prevQty) => prevQty + 1)
     }
 
+    // decrease an item quantity on the [slug].js page, with an added if statement so that it may not decrease into the negatives
     const decQty = () => {
         setQty((prevQty) => {
             if(prevQty - 1 < 1) return 1;
@@ -77,6 +84,7 @@ export const StateContext = ({ children }) => {
         });
     }
 
+    // wraps the entire site with context provider and all the values inside it
     return(
         <Context.Provider
             value={{
@@ -98,4 +106,5 @@ export const StateContext = ({ children }) => {
     )    
 }
 
+// allows to use the state as a hook
 export const useStateContext = () => useContext(Context);

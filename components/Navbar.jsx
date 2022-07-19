@@ -16,12 +16,13 @@ export const Navbar = () => {
 </svg>
       </p>
       
-
+      {/* when pressed it mutates the state of showCart into true */}
       <button type='button' className='cart-icon' onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
         <span className='cart-item-qty'>{totalQuantities}</span>
       </button>
 
+     {/* shows cart when the cart is true */}
      { showCart && <Cart /> } 
     </div>
   )

@@ -32,10 +32,12 @@ export const Cart = () => {
       stripe.redirectToCheckout({ sessionId: data.id });
     }
   
-//this shows the actual apperance of the cart function
+  //this shows the actual apperance of the cart function
   return (
     <div className='cart-wrapper' ref={cartRef}>
       <div className='cart-container'>
+
+        {/* it mutates the showCart state into false */}
         <button type='button' className='cart-heading' onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className='heading'>Your Cart</span>
@@ -43,6 +45,7 @@ export const Cart = () => {
 
         </button>
 
+        {/* if the cart items are less than 1 than it shows "Your Cart is Empty" */}
         {cartItems.length < 1 && (
           <div className='empty-cart'>
             <AiOutlineShopping size={150} />
@@ -55,6 +58,7 @@ export const Cart = () => {
           </div>
         )}
 
+        {/* if the cart has more than and equal to 1 item inside it, it must show the image, name, price, and quantity of the item */}
         <div className='product-container'>
           {cartItems.length >= 1 && cartItems.map((item, index) =>  (
             <div className='product' key={item._id}>
@@ -87,6 +91,8 @@ export const Cart = () => {
             ))}
 
         </div>
+
+        {/* this shows the subtotal of all the items inside the cart */}
         {cartItems.length >= 1 && (
           <div className='cart-bottom'>
             <div className='total'>
